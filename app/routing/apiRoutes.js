@@ -5,7 +5,7 @@ var friendsData = require("../data/friends")
 module.exports = function (app) {
 
 
-
+//get request to display Json data for our list of friends
     app.get("/api/friends", function (req, res) {
         return res.json(friendsData)
     })
@@ -48,6 +48,7 @@ module.exports = function (app) {
             //calculate the difference for all questions
             var difference = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10
 
+            //logic for determining if friendsData[i] is currently the best match.
             if (difference < leastDifference)
             leastDifference = differnece;
             bestFriend = friendsData[i].name;
@@ -55,8 +56,14 @@ module.exports = function (app) {
             
         }
 
+        var newBestFriend = {
+            name: bestFriend,
+            photo: photo
+        }
         friendsData.push(user)
 
+        return res.json(newBestFriend);
+        
         console.log("Your new best friend is.... " + bestFriend + "!");
     })
 

@@ -152,9 +152,11 @@
 </html>
 
 <script type="text/javascript">
+//on click function for the submit button
     $("#submit").on("click", function (event) {
         event.preventDefault();
 
+        //object for our new person
         var newFriend = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
@@ -170,15 +172,9 @@
             question10: $("#question-10").val(),
         }
 
-
+        //post request for our new person
         $.post("/api/friends", newFriend, function (data) {
-            if (data) {
-                alert("You've been added to our database!");
-            }
-
-            else {
-                alert("Something went wrong, sorry!")
-            }
+            console.log(data);
         })
 
     })
