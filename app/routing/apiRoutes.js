@@ -12,26 +12,52 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
         //compare answers from the request with those in "friends array"
+        var bestFriend;
+        var photo;
+        var leastDifference; 
         var user = req.body;
         var userAnswers = {
-            question1 = parseInt(user.question1),
-            question2 = parseInt(user.question2),
-            question3 = parseInt(user.question3),
-            question4 = parseInt(user.question4),
-            question5 = parseInt(user.question5),
-            question6 = parseInt(user.question6),
-            question7 = parseInt(user.question7),
-            question8 = parseInt(user.question8),
-            question9 = parseInt(user.question9),
-            question10 = parseInt(user.question10),
+            question1: parseInt(user.question1),
+            question2: parseInt(user.question2),
+            question3: parseInt(user.question3),
+            question4: parseInt(user.question4),
+            question5: parseInt(user.question5),
+            question6: parseInt(user.question6),
+            question7: parseInt(user.question7),
+            question8: parseInt(user.question8),
+            question9: parseInt(user.question9),
+            question10: parseInt(user.question10),
 
         }
+
 
         for (var i = 0; i < friendsData.length; i++) {
 
+            //compare answers for all questions
+            var q1 = Math.abs(userAnswers.question1 - parseInt(friendsData[i].question1))
+            var q2 = Math.abs(userAnswers.question2 - parseInt(friendsData[i].question2))
+            var q3 = Math.abs(userAnswers.question3 - parseInt(friendsData[i].question3))
+            var q4 = Math.abs(userAnswers.question4 - parseInt(friendsData[i].question4))
+            var q5 = Math.abs(userAnswers.question5 - parseInt(friendsData[i].question5))
+            var q6 = Math.abs(userAnswers.question6 - parseInt(friendsData[i].question6))
+            var q7 = Math.abs(userAnswers.question7 - parseInt(friendsData[i].question7))
+            var q8 = Math.abs(userAnswers.question8 - parseInt(friendsData[i].question8))
+            var q9 = Math.abs(userAnswers.question9 - parseInt(friendsData[i].question9))
+            var q10 = Math.abs(userAnswers.question10 - parseInt(friendsData[i].question10))
+
+            //calculate the difference for all questions
+            var difference = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10
+
+            if (difference < leastDifference)
+            leastDifference = differnece;
+            bestFriend = friendsData[i].name;
+            photo = friendsData[i].photo;
+            
         }
 
-        console.log(req.body);
+        friendsData.push(user)
+
+        console.log("Your new best friend is.... " + bestFriend + "!");
     })
 
 }
