@@ -1,19 +1,17 @@
 //dependencies
-var express = require("express");
-var path = require("path");
+var friendsData = require("../data/friends")
 
 
-//set up express app
-var app = express();
+module.exports = function (app) {
 
-//set up express app to handle data
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
-app.get("/api/friends", function(req, res){
-    return res.json(friends)
-})
 
-app.post("/api/friends", function(req, res){
-    //compare answers from the request with those in "friends array"
-})
+    app.get("/api/friends", function (req, res) {
+        return res.json(friendsData)
+    })
+
+    app.post("/api/friends", function (req, res) {
+        //compare answers from the request with those in "friends array"
+    })
+
+}
