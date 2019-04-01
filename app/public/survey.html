@@ -29,10 +29,11 @@
                 <input type="photo" class="form-control" id="photo">
             </div>
 
+            <h2> For the following questions, 1 is strongly disagree, 5 is strongly agree.</h2>
+
             <h3>Question 1:</h3>
-            <p> On a scale of 1-5, how much do you like cartoons?</p>
             <div class="form-group">
-                <label for="question-1">Select list (select one):</label>
+                <label for="question-1">I love cartoons.</label>
                 <select class="form-control" id="question-1">
                     <option>1</option>
                     <option>2</option>
@@ -40,43 +41,39 @@
                     <option>4</option>
                     <option>5</option>
                 </select>
-
+                <br>
                 <h3>Question 2:</h3>
-                <p>A worldwide zombie outbreak occurs. how certain are you of your survival?</p>
-                <label for="question-2">Select list (select one):</label>
+                <label for="question-2">A worldwide zombie outbreak occurs. After 6 months, I will still be alive.</label>
                 <select class="form-control" id="question-2">
-                    <option>1 (Not very likely)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very likely)</option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 3:</h3>
-                <p>Pineapple does not belong on pizza.</p>
-                <label for="question-3">Select list (select one):</label>
+                <label for="question-3">Pineapple does not belong on pizza.</label>
                 <select class="form-control" id="question-3">
-                    <option>1 (Strongly Disagree)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Strongly Agree)</option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 4:</h3>
-                <p>How weird are you?</p>
-                <label for="question-4">Select list (select one):</label>
+                <label for="question-4">I am weird</label>
                 <select class="form-control" id="question-4">
-                    <option>1 (Not so weird) </option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Pretty freakin weird)</option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 5:</h3>
-                <p>What is your favorite number between 1 and 5?</p>
-                <label for="question-5">Select list (select one):</label>
+                <label for="question-5">What is your favorite number between 1 and 5</label>
                 <select class="form-control" id="question-5">
                     <option>1</option>
                     <option>2</option>
@@ -84,63 +81,60 @@
                     <option>4</option>
                     <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 6:</h3>
-                <p>How nerdy are you?</p>
-                <label for="question-6">Select list (select one):</label>
+                <label for="question-6">I am a nerd.</label>
                 <select class="form-control" id="question-6">
-                    <option>1 (Not very)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very) </option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 7:</h3>
-                <p>Music is an important part of my life</p>
-                <label for="question-7">Select list (select one):</label>
+                <label for="question-7">Music is an important part of my life.</label>
                 <select class="form-control" id="question-7">
-                    <option>1 (Not so important)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very important)</option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 8:</h3>
-                <p>How adventurous are you?</p>
-                <label for="question-8">Select list (select one):</label>
+                <label for="question-8">I am very adventerous</label>
                 <select class="form-control" id="question-8">
-                    <option>1 (Not very)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Very)</option>
+                    <option>5</option>
                 </select>
-                
+                <br>
                 <h3>Question 9:</h3>
-                <p>There is no such thing as too much cheese</p>
-                <label for="question-9">Select list (select one):</label>
+                <label for="question-9">There is no such thing as too much cheese.</label>
                 <select class="form-control" id="question-9">
-                    <option>1 (Strongly Disagree)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Strongly Agree)</option>
+                    <option>5</option>
                 </select>
-
+                <br>
                 <h3>Question 10:</h3>
-                <p>Programming is hard.</p>
-                <label for="question-10">Select list (select one):</label>
+                <label for="question-10">Programming is hard.</label>
                 <select class="form-control" id="question-10">
-                    <option>1 (Strongly Disagree)</option>
+                    <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5 (Strongly Agree)</option>
+                    <option>5</option>
                 </select>
             </div>
 
+
+            <button type="submit" class="btn btn-primary" id="submit">Sumbit your survey!</button>
         </form>
     </div>
 
@@ -155,3 +149,12 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+$("#submit").on("click", function(event){
+    event.preventDefault();
+
+    console.log($("#question-1").val())
+})
+
+</script>
