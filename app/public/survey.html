@@ -153,7 +153,6 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -198,10 +197,15 @@
         $.post("/api/friends", newFriend, function (data) {
             console.log(data);
 
+            var friendImage = $("<img>")
+
+            friendImage.attr("src", data.photo);
+            friendImage.addClass("img-fluid");
+
             $("#bestFriendDetails").append(
                 $("<h5>").text(data.name),
-                $("<img>").attr("src", data.photo),
-                $("img").css({'width':'100px', 'height':'300px'})
+                friendImage
+                
             );
 
         
