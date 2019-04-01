@@ -55,7 +55,7 @@ module.exports = function (app) {
             photo = friendsData[i].photo;
             
         }
-
+        //object to store the best match
         var newBestFriend = {
             name: bestFriend,
             photo: photo
@@ -64,7 +64,6 @@ module.exports = function (app) {
 
         return res.json(newBestFriend);
         
-        console.log("Your new best friend is.... " + bestFriend + "!");
     })
 
 }

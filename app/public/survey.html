@@ -135,7 +135,29 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary" id="submit">Sumbit your survey!</button>
+            <button type="submit" class="btn btn-primary" id="submit" data-toggle="modal" data-target="#bestMatch">Sumbit your survey!</button>
+
+            <div class="modal fade" id="bestMatch" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Your new best friend is.....</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="bestFriendDetails">
+                          
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </form>
     </div>
 
@@ -175,6 +197,14 @@
         //post request for our new person
         $.post("/api/friends", newFriend, function (data) {
             console.log(data);
+
+            $("#bestFriendDetails").append(
+                $("<h5>").text(data.name),
+                $("<img>").attr("src", data.photo),
+                $("img").css({'width':'100px', 'height':'300px'})
+            );
+
+        
         })
 
     })
