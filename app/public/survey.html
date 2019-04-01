@@ -43,7 +43,8 @@
                 </select>
                 <br>
                 <h3>Question 2:</h3>
-                <label for="question-2">A worldwide zombie outbreak occurs. After 6 months, I will still be alive.</label>
+                <label for="question-2">A worldwide zombie outbreak occurs. After 6 months, I will still be
+                    alive.</label>
                 <select class="form-control" id="question-2">
                     <option>1</option>
                     <option>2</option>
@@ -151,10 +152,35 @@
 </html>
 
 <script type="text/javascript">
-$("#submit").on("click", function(event){
-    event.preventDefault();
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
 
-    console.log($("#question-1").val())
-})
+        var newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#photo").val().trim(),
+            question1: $("#question-1").val(),
+            question2: $("#question-2").val(),
+            question3: $("#question-3").val(),
+            question4: $("#question-4").val(),
+            question5: $("#question-5").val(),
+            question6: $("#question-6").val(),
+            question7: $("#question-7").val(),
+            question8: $("#question-8").val(),
+            question9: $("#question-9").val(),
+            question10: $("#question-10").val(),
+        }
+
+
+        $.post("/api/friends", newFriend, function (data) {
+            if (data) {
+                alert("You've been added to our database!");
+            }
+
+            else {
+                alert("Something went wrong, sorry!")
+            }
+        })
+
+    })
 
 </script>
