@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container bg-light text-dark">
         <h1>Survey Time!</h1>
 
         <h3>What is your name?</h3>
@@ -65,7 +65,7 @@
                 </select>
                 <br>
                 <h3>Question 4:</h3>
-                <label for="question-4">I am weird</label>
+                <label for="question-4">I am weird.</label>
                 <select class="form-control" id="question-4">
                     <option>1</option>
                     <option>2</option>
@@ -75,7 +75,7 @@
                 </select>
                 <br>
                 <h3>Question 5:</h3>
-                <label for="question-5">What is your favorite number between 1 and 5</label>
+                <label for="question-5">What is your favorite number between 1 and 5.</label>
                 <select class="form-control" id="question-5">
                     <option>1</option>
                     <option>2</option>
@@ -105,7 +105,7 @@
                 </select>
                 <br>
                 <h3>Question 8:</h3>
-                <label for="question-8">I am very adventerous</label>
+                <label for="question-8">I am very adventerous.</label>
                 <select class="form-control" id="question-8">
                     <option>1</option>
                     <option>2</option>
@@ -137,6 +137,8 @@
 
 
             <button type="submit" class="btn btn-primary" id="submit" data-toggle="modal" data-target="#bestMatch">Sumbit your survey!</button>
+
+            <br><br><br>
 
             <div class="modal fade" id="bestMatch" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -197,6 +199,8 @@
         //post request for our new person
         $.post("/api/friends", newFriend, function (data) {
             console.log(data);
+
+            $("#bestFriendDetails").empty();
 
             var friendImage = $("<img>")
 

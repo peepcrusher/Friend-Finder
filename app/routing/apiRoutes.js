@@ -16,6 +16,7 @@ module.exports = function (app) {
         var photo;
         var leastDifference; 
         var user = req.body;
+        //all the answers the user gave put into 
         var userAnswers = {
             question1: parseInt(user.question1),
             question2: parseInt(user.question2),
@@ -30,7 +31,7 @@ module.exports = function (app) {
 
         }
 
-
+        //go through the friends array, grab their answers, and compare them to the user's answers
         for (var i = 0; i < friendsData.length; i++) {
 
             //compare answers for all questions
@@ -60,8 +61,10 @@ module.exports = function (app) {
             name: bestFriend,
             photo: photo
         }
+        //push the user into the friendsData for future people to match with
         friendsData.push(user)
 
+        //return the best match
         return res.json(newBestFriend);
         
     })

@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //set up express to be able to use files in the public folder.
-app.use(express.static('public'))
+app.use(express.static(__dirname + "/app/public/"));
 
 
 require("./app/routing/apiRoutes")(app);
