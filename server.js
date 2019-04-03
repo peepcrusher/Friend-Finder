@@ -5,6 +5,7 @@ var path = require("path");
 //set up express app
 var app = express();
 var PORT = process.env.PORT || 3000;
+var HOST = "0.0.0.0";
 
 //set up express app to handle data
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,6 @@ require("./app/routing/htmlRoutes")(app);
 
 
 //starts up server
-app.listen(PORT, function () {
+app.listen(PORT, HOST, function () {
     console.log("App is listening on PORT: " + PORT);
 });
